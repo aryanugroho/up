@@ -10,6 +10,9 @@ Up focuses on deploying "vanilla" HTTP servers so there's nothing new to learn, 
 Up currently supports Node.js, Golang, Python, Java, Crystal, and static sites out of the box. Up is platform-agnostic, supporting AWS Lambda and API Gateway as the first targets. You can think of Up as self-hosted Heroku style user experience for a fraction of the price, with the security, flexibility, and scalability of AWS.
 =======
 Up currently supports Node.js, Golang, Python, Crystal, and static sites out of the box. Up is platform-agnostic, supporting AWS Lambda and API Gateway as the first targets. You can think of Up as self-hosted Heroku style user experience for a fraction of the price, with the security, flexibility, and scalability of AWS.
+<<<<<<< HEAD
 
 ![](https://apex-software.imgix.net/up/docs/deploy.png)
+>>>>>>> build
+=======
 >>>>>>> build
