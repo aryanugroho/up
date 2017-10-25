@@ -90,7 +90,7 @@
 
 <p>Up focuses on deploying “vanilla” HTTP servers so there’s nothing new to learn, just develop with your favorite existing frameworks such as Express, Koa, Django, Golang net/http or others.</p>
 
-<p>Up currently supports Node.js, Golang, Python, Crystal, and static sites out of the box. Up is platform-agnostic, supporting AWS Lambda and API Gateway as the first targets. You can think of Up as self-hosted Heroku style user experience for a fraction of the price, with the security, flexibility, and scalability of AWS.</p>
+<p>Up currently supports Node.js, Golang, Python, Java, Crystal, and static sites out of the box. Up is platform-agnostic, supporting AWS Lambda and API Gateway as the first targets. You can think of Up as self-hosted Heroku style user experience for a fraction of the price, with the security, flexibility, and scalability of AWS.</p>
 
               </div>
             
@@ -582,6 +582,7 @@ server.listen
 
 <ul>
 <li><code>PORT</code> – port number such as “3000”</li>
+<li><code>UP_STAGE</code> – stage name such as “development” or “production”</li>
 </ul>
 
 <h2 class="Heading"><a class="Anchor" aria-hidden="true" id="configuration.header_injection" href="#configuration.header_injection">
@@ -1773,7 +1774,7 @@ Hello World
   Domain up-example.com is available for $12.00 USD
 </code></pre>
 
-<p>Purchase it with the following command, and fill out the details required by the registrar.</p>
+<p>Purchase it with the following command and fill out the details required by the registrar:</p>
 
 <pre><code>$ up domains buy
 
@@ -1789,7 +1790,7 @@ Hello World
   Address: Some address here
 </code></pre>
 
-<p>It can take a few minutes for AWS to finalize the purchase, you should receive an email, then you’ll see it in the <code>up domains</code> output, along with the automatic renewal time.</p>
+<p>It can take a few minutes for AWS to finalize the purchase after which you should receive an email. Then you’ll see it in the <code>up domains</code> output along with the automatic renewal time.</p>
 
 <pre><code>$ up domains
 
@@ -1966,7 +1967,7 @@ development (isatty.com):
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
 </a>Logging</h2>
 
-<p>This section describes how you can log from you application in a way that Up will recognize. In the future Up will support forwarding your logs to services such as Loggly, Papertrail or ELK.</p>
+<p>This section describes how you can log from your application in a way that Up will recognize. In the future Up will support forwarding your logs to services such as Loggly, Papertrail or ELK.</p>
 
 <h3 class="Heading"><a class="Anchor" aria-hidden="true" id="guides.logging.plain_text" href="#guides.logging.plain_text">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -2038,7 +2039,7 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>$ up logs &#39;name = &#34;Tobi&#34; or email = &#34;tobi@*&#34;&#39;
 </code></pre>
 
-<p>Here’s a simple JavaScript logger for reference, all you need to do is output some JSON to stdout and Up will handle the rest!</p>
+<p>Here’s a simple JavaScript logger for reference. All you need to do is output some JSON to stdout and Up will handle the rest!</p>
 
 <pre><code class="language-js">function log(level, message, fields = {}) {
   const entry = { level, message, fields }
@@ -2046,7 +2047,7 @@ console.log(&#39;  email: %s&#39;, user.email)
 }
 </code></pre>
 
-<p>For example with the Go <a href="https://github.com/apex/log">apex/log</a> package you’d use the <code>json</code> handler, which outputs this format.</p>
+<p>For example, with the Go <a href="https://github.com/apex/log">apex/log</a> package you’d use the <code>json</code> handler, which outputs this format.</p>
 
 <h2 class="Heading"><a class="Anchor" aria-hidden="true" id="guides.log_query_language" href="#guides.log_query_language">
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -2120,7 +2121,7 @@ console.log(&#39;  email: %s&#39;, user.email)
 <pre><code>stage = &#34;production&#34;
 </code></pre>
 
-<p>For example filtering on slow production responses:</p>
+<p>For example, filtering on slow production responses:</p>
 
 <pre><code>production duration &gt;= 1s
 </code></pre>
@@ -2134,7 +2135,7 @@ console.log(&#39;  email: %s&#39;, user.email)
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
 </a>Severity Levels</h3>
 
-<p>Up provides request level logging with severity levels applied automatically, for example a 5xx response is an ERROR level, while 4xx is a WARN, and 3xx or 2xx are the INFO level.</p>
+<p>Up provides request level logging with severity levels applied automatically. For example, a 5xx response is an ERROR level, while 4xx is a WARN, and 3xx or 2xx are the INFO level.</p>
 
 <p>This means that instead of using the following for showing production errors:</p>
 
@@ -2150,7 +2151,7 @@ console.log(&#39;  email: %s&#39;, user.email)
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
 </a>In Operator</h3>
 
-<p>The <code>in</code> operator checks for the presence of a field within the set provided. For example showing only POST, PUT and PATCH requests:</p>
+<p>The <code>in</code> operator checks for the presence of a field within the set provided. For example, showing only POST, PUT and PATCH requests:</p>
 
 <pre><code>method in (&#34;POST&#34;, &#34;PUT&#34;, &#34;PATCH&#34;)
 </code></pre>
@@ -2159,7 +2160,7 @@ console.log(&#39;  email: %s&#39;, user.email)
 	<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
 </a>Units</h3>
 
-<p>The log grammar supports units for bytes and durations, for example showing responses larger than 56kb:</p>
+<p>The log grammar supports units for bytes and durations. For example, showing responses larger than 56kb:</p>
 
 <pre><code>size &gt; 56kb
 </code></pre>
@@ -2283,6 +2284,12 @@ direnv: export +DB_URL
 <p></p><details>
   <summary>How much latency does Up’s reverse proxy introduce?</summary>
   <p>With a 512mb Lambda function Up introduces an average of around 500µs (microseconds) per request.</p>
+</details><p></p>
+
+<p></p><details>
+  <summary>Can I remove the /development and /production paths?</summary>
+  <p>Up uses AWS API Gateway, which imposes the stage base paths. Currently there is no way to remove them, however when you use
+  custom domains these paths are not present.</p>
 </details><p></p>
 
 <p></p><details>
